@@ -28,7 +28,7 @@ app.set('views', path.join(__dirname, 'views'));
 const recaptchaSiteKey = '6Lfkp5MoAAAAADZFTt6gTxwbuwyS-uZG9Vqud7dZ';
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1:27017/nodeproject', {
+mongoose.connect('mongodb+srv://vickyjsauth:PZxeE0vvWdbZn9fw@mymongodb.mecwaj1.mongodb.net/mymongodb?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
