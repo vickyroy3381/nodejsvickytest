@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const path = require ('path');
@@ -34,7 +35,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/nodeproject', {
 
 // Express middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({ secret: 'secret-key', resave: true, saveUninitialized: true }));
+app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    resave: false,
+    secret: 'keyboard cat'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
