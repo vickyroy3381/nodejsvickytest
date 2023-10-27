@@ -71,7 +71,7 @@ passport.deserializeUser(async (id, done) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/home.html');
+    res.render('login.ejs');
   });
 
   //const secretKey = '6Lfkp5MoAAAAAB71Hzi4w8YkWvHG5dhTRqrabdee';
