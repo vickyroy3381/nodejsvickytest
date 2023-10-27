@@ -84,7 +84,7 @@ app.post('/register', async (req, res) => {
   const { username, password, 'g-recaptcha-response': recaptchaToken } = req.body;
 
   // Verify reCAPTCHA response
-  const secretKey = '6Lfkp5MoAAAAAB71Hzi4w8YkWvHG5dhTRqrabdee'; // Replace with your reCAPTCHA secret key
+  const secretKey = '6Lfms88oAAAAACJpb__0N22L2uZNwaJelPud1qKP'; // Replace with your reCAPTCHA secret key
   const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
   
   try{
