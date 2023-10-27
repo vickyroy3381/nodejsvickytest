@@ -253,7 +253,7 @@ app.get('/logout', (req, res) => {
         }
   
     // Send the reset password link via username
-    const resetLink = `http://localhost:3000/reset-password/${user._id}/${token.token}`;
+    const resetLink = `https://nodejsvickytest.onrender.com/reset-password/${user._id}/${token.token}`;
     const mailOptions = {
       from:'venkatanagireddy3381@gmail.com',
       to: username,
@@ -312,7 +312,7 @@ app.get('/logout', (req, res) => {
       // Check if the token is valid and not expired
      
       const user = await User.findById(req.params.userId);
-      if (!user) return res.status(400).send("invalid link or expired aaaaaaaaa...");
+      if (!user) return res.status(400).send("invalid link or expired");
       const token_rec = await Token.findOne({
         userId: user._id,
         token: token,
